@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace RefactorExercises.EnumSwitch.Model
 {
@@ -14,7 +12,7 @@ namespace RefactorExercises.EnumSwitch.Model
         Delete = 4,
     }
 
-    public static class ClassificationRoleTypeExtensions
+    public static class PermissionExtensions
     {
         public static IEnumerable<Permission> ToEnumerable(this Permission permission)
         {
@@ -27,15 +25,15 @@ namespace RefactorExercises.EnumSwitch.Model
             }
         }
 
-        public static Permission ToFlagsEnum(this IEnumerable<Permission> permission)
+        public static Permission ToFlagsEnum(this IEnumerable<Permission> permissions)
         {
-            if (permission?.Any() != true)
+            if (permissions?.Any() != true)
             {
-                throw new ArgumentNullException(nameof(permission));
+                throw new ArgumentNullException(nameof(permissions));
             }
 
             int result = 0;
-            foreach (var claim in permission)
+            foreach (var claim in permissions)
             {
                 result += (int)claim;
             }

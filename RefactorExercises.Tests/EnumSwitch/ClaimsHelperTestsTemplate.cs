@@ -4,7 +4,7 @@ using RefactorExercises.EnumSwitch.Model;
 
 namespace RefactorExercises.Tests.EnumSwitch
 {
-    public abstract class PermissionsHelperTestsTemplate
+    public abstract class ClaimsHelperTestsTemplate
     {
         private readonly string _userId = "UserId01";
 

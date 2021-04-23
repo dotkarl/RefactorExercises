@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31129.286
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RefactorExercises", "RefactorExercises\RefactorExercises.csproj", "{5CA92D2E-8588-4723-9574-AC7A7BA20864}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RefactorExercises", "RefactorExercises\RefactorExercises.csproj", "{5CA92D2E-8588-4723-9574-AC7A7BA20864}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RefactorExercises.Tests", "RefactorExercises.Tests\RefactorExercises.Tests.csproj", "{206179D1-9331-411F-9CB9-6EE2793321A0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RefactorExercises.Tests", "RefactorExercises.Tests\RefactorExercises.Tests.csproj", "{206179D1-9331-411F-9CB9-6EE2793321A0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RefactorExercises.Benchmarks", "RefactorExercises.Benchmarks\RefactorExercises.Benchmarks.csproj", "{D94B5B00-D21F-4C43-BBD8-C357735DEAF5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{206179D1-9331-411F-9CB9-6EE2793321A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{206179D1-9331-411F-9CB9-6EE2793321A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{206179D1-9331-411F-9CB9-6EE2793321A0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D94B5B00-D21F-4C43-BBD8-C357735DEAF5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D94B5B00-D21F-4C43-BBD8-C357735DEAF5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D94B5B00-D21F-4C43-BBD8-C357735DEAF5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D94B5B00-D21F-4C43-BBD8-C357735DEAF5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

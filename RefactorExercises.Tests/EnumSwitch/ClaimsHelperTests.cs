@@ -6,7 +6,7 @@ using RefactoredV02ClaimsHelper = RefactorExercises.EnumSwitch.Refactored.V02.Cl
 using RefactoredV03ClaimsHelper = RefactorExercises.EnumSwitch.Refactored.V03.ClaimsHelper;
 using RefactoredV04ClaimsHelper = RefactorExercises.EnumSwitch.Refactored.V04.ClaimsHelper;
 using RefactoredV05ClaimsHelper = RefactorExercises.EnumSwitch.Refactored.V05.ClaimsHelper;
-
+using RefactoredV06ClaimsHelper = RefactorExercises.EnumSwitch.Refactored.V06.ClaimsHelper;
 
 namespace RefactorExercises.Tests.EnumSwitch
 {
@@ -61,6 +61,15 @@ namespace RefactorExercises.Tests.EnumSwitch
         public override IClaimsHelper GetClaimsHelper(User user)
         {
             return new RefactoredV05ClaimsHelper(user);
+        }
+    }
+
+    [TestClass]
+    public class ClaimsHelperTestsRefactoredV06 : ClaimsHelperTestsTemplate
+    {
+        public override IClaimsHelper GetClaimsHelper(User user)
+        {
+            return new RefactoredV06ClaimsHelper(user);
         }
     }
 }

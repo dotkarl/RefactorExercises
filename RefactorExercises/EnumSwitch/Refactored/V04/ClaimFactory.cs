@@ -12,7 +12,7 @@ namespace RefactorExercises.EnumSwitch.Refactored.V04
         public static IGetClaim GetClaim(Permission permission)
         {
             _getClaimTypes ??= GetAllImplementationsOfIGetClaim();
-            var type = GetClaimClassForPermission(_getClaimTypes, permission);
+            var type = GetClaimClassForPermission(permission);
             if (type is null)
             {
                 throw new NotSupportedException($"Permission of type '{permission}' is not supported");
@@ -31,9 +31,9 @@ namespace RefactorExercises.EnumSwitch.Refactored.V04
                             typeof(IGetClaim).IsAssignableFrom(t));
         }
 
-        private static Type GetClaimClassForPermission(IEnumerable<Type> getClaimClasses, Permission permission)
+        private static Type GetClaimClassForPermission(Permission permission)
         {
-            return getClaimClasses.FirstOrDefault(c => c.GetProperty(nameof(IGetClaim.Permission)).GetValue(null, null).Equals(permission));
+            return _getClaimTypes.FirstOrDefault(c => c.GetProperty(nameof(IGetClaim.Permission)).GetValue(null, null).Equals(permission));
         }
     }
 }

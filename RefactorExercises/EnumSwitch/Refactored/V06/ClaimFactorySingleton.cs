@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace RefactorExercises.EnumSwitch.Refactored.V05
+namespace RefactorExercises.EnumSwitch.Refactored.V06
 {
     public sealed class ClaimFactorySingleton
     {
@@ -22,32 +22,39 @@ namespace RefactorExercises.EnumSwitch.Refactored.V05
             }
         }
 
-        private static IEnumerable<Type> _getClaimTypes;
+        private static Dictionary<Permission, Type> _getClaimTypes;
 
         public IGetClaim GetClaim(Permission permission)
         {
-            var type = GetClaimClassForPermission(permission);
+            var type = _getClaimTypes[permission];
             if (type is null)
             {
                 throw new NotSupportedException($"Permission of type '{permission}' is not supported");
             }
-
             return Activator.CreateInstance(type) as IGetClaim;
         }
 
-        private static IEnumerable<Type> GetAllImplementationsOfIGetClaim()
+        private static Dictionary<Permission, Type> GetAllImplementationsOfIGetClaim()
         {
-            return typeof(ClaimFactorySingleton).Assembly
+            var types = typeof(ClaimFactorySingleton).Assembly
                 .GetTypes()
                 .Where(t => !t.IsInterface &&
                             !t.IsAbstract &&
-                            t.Namespace.Equals("RefactorExercises.EnumSwitch.Refactored.V05") &&
+                            t.Namespace.Equals("RefactorExercises.EnumSwitch.Refactored.V06") &&
                             typeof(IGetClaim).IsAssignableFrom(t));
+            var allPermissions = (Permission)255;
+
+            var dict = new Dictionary<Permission, Type>();
+            foreach (var permission in allPermissions.ToEnumerable())
+            {
+                dict.Add(permission, GetClaimClassForPermission(types, permission));
+            }
+            return dict;
         }
 
-        private static Type GetClaimClassForPermission(Permission permission)
+        private static Type GetClaimClassForPermission(IEnumerable<Type> getClaimTypes, Permission permission)
         {
-            return _getClaimTypes.FirstOrDefault(c => c.GetProperty(nameof(IGetClaim.Permission)).GetValue(null, null).Equals(permission));
+            return getClaimTypes.FirstOrDefault(c => c.GetProperty(nameof(IGetClaim.Permission)).GetValue(null, null).Equals(permission));
         }
     }
 }

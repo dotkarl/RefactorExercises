@@ -7,6 +7,7 @@ using RefactoredV02ClaimsHelper = RefactorExercises.EnumSwitch.Refactored.V02.Cl
 using RefactoredV03ClaimsHelper = RefactorExercises.EnumSwitch.Refactored.V03.ClaimsHelper;
 using RefactoredV04ClaimsHelper = RefactorExercises.EnumSwitch.Refactored.V04.ClaimsHelper;
 using RefactoredV05ClaimsHelper = RefactorExercises.EnumSwitch.Refactored.V05.ClaimsHelper;
+using RefactoredV06ClaimsHelper = RefactorExercises.EnumSwitch.Refactored.V06.ClaimsHelper;
 
 namespace RefactorExercises.Benchmarks.EnumSwitch
 {
@@ -27,6 +28,7 @@ namespace RefactorExercises.Benchmarks.EnumSwitch
         private static readonly RefactoredV03ClaimsHelper _claimsHelperV03 = new(_user);
         private static readonly RefactoredV04ClaimsHelper _claimsHelperV04 = new(_user);
         private static readonly RefactoredV05ClaimsHelper _claimsHelperV05 = new(_user);
+        private static readonly RefactoredV06ClaimsHelper _claimsHelperV06 = new(_user);
 
         [Benchmark(Baseline = true)]
         public void GetClaimsForUserV00()
@@ -62,6 +64,12 @@ namespace RefactorExercises.Benchmarks.EnumSwitch
         public void GetClaimsForUserV05()
         {
             _ = _claimsHelperV05.GetClaimsForUser();
+        }
+
+        [Benchmark]
+        public void GetClaimsForUserV06()
+        {
+            _ = _claimsHelperV06.GetClaimsForUser();
         }
     }
 }

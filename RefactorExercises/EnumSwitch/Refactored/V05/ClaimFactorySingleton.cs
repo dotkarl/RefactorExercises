@@ -9,7 +9,7 @@ namespace RefactorExercises.EnumSwitch.Refactored.V05
     {
         private ClaimFactorySingleton()
         {
-
+            _getClaimTypes = GetAllImplementationsOfIGetClaim();
         }
 
         private static ClaimFactorySingleton _instance = null;
@@ -17,19 +17,15 @@ namespace RefactorExercises.EnumSwitch.Refactored.V05
         {
             get
             {
-                if (_instance is null)
-                {
-                    _instance = new ClaimFactorySingleton();
-                }
+                _instance ??= new ClaimFactorySingleton();
                 return _instance;
             }
         }
 
-        private static IEnumerable<Type> _getClaimTypes = null;
+        private static IEnumerable<Type> _getClaimTypes;
 
         public IGetClaim GetClaim(Permission permission)
         {
-            _getClaimTypes ??= GetAllImplementationsOfIGetClaim();
             var type = GetClaimClassForPermission(_getClaimTypes, permission);
             if (type is null)
             {

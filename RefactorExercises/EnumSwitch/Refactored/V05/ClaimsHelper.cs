@@ -19,7 +19,7 @@ namespace RefactorExercises.EnumSwitch.Refactored.V05
             // User can have multiple claims, so loop through them
             foreach (var permission in _user.Permissions.ToEnumerable())
             {
-                var claimGetter = ClaimFactorySingleton.Instance.GetClaim(permission);
+                var claimGetter = ClaimProviderFactorySingleton.Instance.GetClaimProvider(permission);
                 claimsBuilder.AppendLine(claimGetter.GetClaim());
             }
 

@@ -1,6 +1,6 @@
 ﻿namespace RefactorExercises.EnumSwitch.Refactored.V02
 {
-    public interface IGetClaim
+    public interface IProvideClaims
     {
         string GetClaim();
     }

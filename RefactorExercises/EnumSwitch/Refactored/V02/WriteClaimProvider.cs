@@ -1,6 +1,6 @@
 ﻿namespace RefactorExercises.EnumSwitch.Refactored.V02
 {
-    public class WriteClaimProvider : IGetClaim
+    public class WriteClaimProvider : IProvideClaims
     {
         public string GetClaim()
         {

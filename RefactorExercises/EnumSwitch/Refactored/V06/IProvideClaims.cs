@@ -1,8 +1,8 @@
 ﻿using RefactorExercises.EnumSwitch.Model;
 
-namespace RefactorExercises.EnumSwitch.Refactored.V05
+namespace RefactorExercises.EnumSwitch.Refactored.V06
 {
-    public interface IGetClaim
+    public interface IProvideClaims
     {
         static Permission Permission { get; }
         string GetClaim();

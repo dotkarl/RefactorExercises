@@ -2,7 +2,7 @@
 
 namespace RefactorExercises.EnumSwitch.Refactored.V04
 {
-    public interface IGetClaim
+    public interface IProvideClaims
     {
         static Permission Permission { get; }
         string GetClaim();

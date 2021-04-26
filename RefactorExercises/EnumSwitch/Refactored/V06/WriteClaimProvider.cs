@@ -2,7 +2,7 @@
 
 namespace RefactorExercises.EnumSwitch.Refactored.V06
 {
-    public class WriteClaimProvider : IGetClaim
+    public class WriteClaimProvider : IProvideClaims
     {
         public static Permission Permission => Permission.Write;
 

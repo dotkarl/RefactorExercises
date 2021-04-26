@@ -1,8 +1,8 @@
 ﻿using RefactorExercises.EnumSwitch.Model;
 
-namespace RefactorExercises.EnumSwitch.Refactored.V04
+namespace RefactorExercises.EnumSwitch.Refactored.V05
 {
-    public class GetDeleteClaim : IGetClaim
+    public class DeleteClaimProvider : IGetClaim
     {
         public static Permission Permission => Permission.Delete;
 

@@ -32,9 +32,9 @@ namespace RefactorExercises.EnumSwitch.Refactored.V02
         {
             return permission switch
             {
-                Permission.Read => new GetReadClaim(),
-                Permission.Write => new GetWriteClaim(),
-                Permission.Delete => new GetDeleteClaim(),
+                Permission.Read => new ReadClaimProvider(),
+                Permission.Write => new WriteClaimProvider(),
+                Permission.Delete => new DeleteClaimProvider(),
                 _ => throw new NotSupportedException($"Claim of type '{permission}' is not supported"),
             };
         }

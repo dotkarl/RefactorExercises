@@ -1,8 +1,8 @@
 ﻿using RefactorExercises.EnumSwitch.Model;
 
-namespace RefactorExercises.EnumSwitch.Refactored.V06
+namespace RefactorExercises.EnumSwitch.Refactored.V04
 {
-    public class GetReadClaim : IGetClaim
+    public class ReadClaimProvider : IGetClaim
     {
         public static Permission Permission => Permission.Read;
 

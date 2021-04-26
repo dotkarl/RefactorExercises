@@ -2,14 +2,14 @@
 
 namespace RefactorExercises.EnumSwitch.Refactored.V05
 {
-    public class GetDeleteClaim : IGetClaim
+    public class WriteClaimProvider : IGetClaim
     {
-        public static Permission Permission => Permission.Delete;
+        public static Permission Permission => Permission.Write;
 
         public string GetClaim()
         {
             // Processing...
-            return " - User can Delete entries";
+            return "- User can Write entries";
         }
     }
 }

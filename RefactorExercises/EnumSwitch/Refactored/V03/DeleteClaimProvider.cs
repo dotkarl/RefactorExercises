@@ -2,7 +2,7 @@
 
 namespace RefactorExercises.EnumSwitch.Refactored.V03
 {
-    public class GetDeleteClaim : IGetClaim
+    public class DeleteClaimProvider : IGetClaim
     {
         public static Permission Permission => Permission.Delete;
 

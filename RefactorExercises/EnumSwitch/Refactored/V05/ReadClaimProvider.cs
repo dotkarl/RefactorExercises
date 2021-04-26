@@ -2,7 +2,7 @@
 
 namespace RefactorExercises.EnumSwitch.Refactored.V05
 {
-    public class GetReadClaim : IGetClaim
+    public class ReadClaimProvider : IGetClaim
     {
         public static Permission Permission => Permission.Read;
 

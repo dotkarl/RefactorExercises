@@ -23,13 +23,16 @@ namespace RefactorExercises.EnumSwitch.Refactored.V01
                 switch (permission)
                 {
                     case Permission.Read:
-                        claimsBuilder.AppendLine(GetReadClaim());
+                        var r = new ReadClaimProvider();
+                        claimsBuilder.AppendLine(r.GetReadClaim());
                         break;
                     case Permission.Write:
-                        claimsBuilder.AppendLine(GetWriteClaim());
+                        var w = new WriteClaimProvider();
+                        claimsBuilder.AppendLine(w.GetWriteClaim());
                         break;
                     case Permission.Delete:
-                        claimsBuilder.AppendLine(GetDeleteClaim());
+                        var d = new DeleteClaimProvider();
+                        claimsBuilder.AppendLine(d.GetDeleteClaim());
                         break;
                     default:
                         throw new NotSupportedException($"Permission of type '{permission}' is not supported");
@@ -38,24 +41,6 @@ namespace RefactorExercises.EnumSwitch.Refactored.V01
 
             // Return all the claims for the User
             return claimsBuilder.ToString();
-        }
-
-        private string GetReadClaim()
-        {
-            // Processing...
-            return "- User can Read entries";
-        }
-
-        private string GetWriteClaim()
-        {
-            // Processing...
-            return "- User can Write entries";
-        }
-
-        private string GetDeleteClaim()
-        {
-            // Processing...
-            return " - User can Delete entries";
         }
     }
 }

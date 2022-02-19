@@ -95,7 +95,7 @@ namespace RefactorExercises.Tests.EnumSwitch
             return claimsHelper.GetClaimsForUser();
         }
 
-        private User GetUser(Permission claims)
+        protected virtual User GetUser(Permission claims)
         {
             return new User()
             {

@@ -24,7 +24,7 @@ namespace RefactorExercises.Benchmarks.EnumSwitch
             Permissions = (Permission)7
         };
 
-        private static readonly SmartUser _smarUser = new SmartUser()
+        private static readonly SmartUser _smartUser = new SmartUser()
         {
             Id = "SmartUserId07",
             SmartPermissions = SmartPermission.List
@@ -37,7 +37,7 @@ namespace RefactorExercises.Benchmarks.EnumSwitch
         private static readonly RefactoredV04ClaimsHelper _claimsHelperV04 = new(_user);
         private static readonly RefactoredV05ClaimsHelper _claimsHelperV05 = new(_user);
         private static readonly RefactoredV06ClaimsHelper _claimsHelperV06 = new(_user);
-        private static readonly RefactoredV07ClaimsHelper _claimsHelperV07 = new(_smarUser);
+        private static readonly RefactoredV07ClaimsHelper _claimsHelperV07 = new(_smartUser);
 
         [Benchmark(Baseline = true)]
         public void GetClaimsForUserV00()

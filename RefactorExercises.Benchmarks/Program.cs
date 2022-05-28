@@ -1,5 +1,4 @@
 ﻿using BenchmarkDotNet.Running;
-using RefactorExercises.Benchmarks.EnumSwitch;
 
 namespace RefactorExercises.Benchmarks
 {
@@ -7,7 +6,7 @@ namespace RefactorExercises.Benchmarks
     {
         static void Main(string[] args)
         {
-            BenchmarkRunner.Run<ClaimsHelperBenchMarks>();
+            BenchmarkRunner.Run<VAT.VatCalculatorBenchmarks>();
         }
     }
 }

@@ -2,7 +2,8 @@
 using BenchmarkDotNet.Order;
 using RefactorExercises.VAT.Model;
 using System.Collections.Generic;
-using ObjectOrientedVatCalculator = RefactorExercises.VAT.ObjectOriented.VatCalculator;
+using ObjectOrientedVatCalculatorV1 = RefactorExercises.VAT.ObjectOriented.V1.VatCalculator;
+using ObjectOrientedVatCalculatorV2 = RefactorExercises.VAT.ObjectOriented.V2.Order;
 using FunctionalVatCalculator = RefactorExercises.VAT.Functional.VatCalculator;
 
 namespace RefactorExercises.Benchmarks.VAT
@@ -31,21 +32,31 @@ namespace RefactorExercises.Benchmarks.VAT
         }
 
         [Benchmark(Baseline = true)]
-        public void CalculateVatObjectOriented()
-        {
-            foreach (var (address, order) in _values)
-            {
-                var calculator = new ObjectOrientedVatCalculator(address, order);
-                _ = calculator.Vat();
-            }
-        }
-
-        [Benchmark]
         public void CalculateVatFunctional()
         {
             foreach (var (address, order) in _values)
             {
                 _ = FunctionalVatCalculator.Vat(address, order);
+            }
+        }
+
+        [Benchmark]
+        public void CalculateVatObjectOrientedV1()
+        {
+            foreach (var (address, order) in _values)
+            {
+                var calculator = new ObjectOrientedVatCalculatorV1(address, order);
+                _ = calculator.Vat();
+            }
+        }
+
+        [Benchmark]
+        public void CalculateVatObjectOrientedV2()
+        {
+            foreach (var (address, order) in _values)
+            {
+                var orderV2 = new ObjectOrientedVatCalculatorV2(order);
+                _ = orderV2.Vat(address);
             }
         }
     }

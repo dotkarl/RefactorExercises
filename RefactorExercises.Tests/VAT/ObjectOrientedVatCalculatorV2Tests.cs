@@ -1,16 +1,16 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using RefactorExercises.VAT.Model;
-using RefactorExercises.VAT.ObjectOriented;
+using ObjectOrientedOrder = RefactorExercises.VAT.ObjectOriented.V2.Order;
 
 namespace RefactorExercises.Tests.VAT
 {
     [TestClass]
-    public class ObjectOrientedVatCalculatorTests : VatCalculatorTestsTemplate
+    public class ObjectOrientedVatCalculatorV2Tests : VatCalculatorTestsTemplate
     {
         protected override decimal CalculateVat(Address address, Order order)
         {
-            var calculator = new VatCalculator(address, order);
-            return calculator.Vat();
+            var orderV2 = new ObjectOrientedOrder(order);
+            return orderV2.Vat(address);
         }
     }
 }

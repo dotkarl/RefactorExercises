@@ -2,7 +2,7 @@
 using RefactorExercises.VAT.ObjectOriented.Strategies;
 using System;
 
-namespace RefactorExercises.VAT.ObjectOriented
+namespace RefactorExercises.VAT.ObjectOriented.V1
 {
     public class VatCalculator
     {
@@ -21,7 +21,7 @@ namespace RefactorExercises.VAT.ObjectOriented
             {
                 "it" => Vat(new ItalianRate()),
                 "jp" => Vat(new JapaneseRate()),
-                "de" => Vat(new GermanRate(_order)),
+                "de" => Vat(new GermanRate(_order.Product)),
                 "us" => Vat(new UsRate(_address as UsAddress)),
                 _ => throw new ArgumentException($"Missing rate for {_address.Country}")
             };

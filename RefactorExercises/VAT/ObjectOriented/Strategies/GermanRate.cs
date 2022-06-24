@@ -4,16 +4,16 @@ namespace RefactorExercises.VAT.ObjectOriented.Strategies
 {
     internal class GermanRate : ICalculateRate
     {
-        private readonly Order _order;
+        private readonly Product _product;
 
-        public GermanRate(Order order)
+        public GermanRate(Product product)
         {
-            _order = order;
+            _product = product;
         }
 
         public decimal Rate()
         {
-            if (_order.Product.IsFood)
+            if (_product.IsFood)
             {
                 return 0.08m;
             }
